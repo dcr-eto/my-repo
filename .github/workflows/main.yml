@@ -26,8 +26,8 @@ jobs:
     - name: setup git config
       run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "dcr-eto"
-          git config user.email "dcruette@publicis-eto.fr"
+          git config --global user.name "dcr-eto"
+          git config --global user.email "dcruette@publicis-eto.fr"
           git branch
     - name: commit
       run: |
