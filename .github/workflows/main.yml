@@ -17,5 +17,9 @@ jobs:
       run: ls -f
     - name: Lancer la compilation
       run: mvn clean compile
-    - name: Lancer le paven site
+    - name: Lancer le maven site
       run: mvn site
+    - name: ls sur racine
+      run: ls -f
+    - name: ls sur target/site
+      run: ls -f target/site
