@@ -11,9 +11,9 @@ jobs:
       - name: checkout
         uses: actions/checkout@v1
       - name: GitHub Pages Deploy
-        uses: maxheld83/ghpages
+        uses: maxheld83/ghpages@v0.2.1
           env = {
-          BUILD_DIR = "/demo/"
+          BUILD_DIR = "/demo"
           }
           secrets = ["GH_PAT"]
 
