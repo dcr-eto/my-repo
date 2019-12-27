@@ -140,28 +140,9 @@
       <!-- <scope>test</scope>--> 
     </dependency>
   </dependencies>  
-  <distributionManagement> 
-    <repository> 
-      <id>ftp-repository</id>  
-      <url>ftp://ftp.qualitesys.com/www/mavenrepository</url> 
-    </repository> 
-  </distributionManagement>  
   <build> 
     <sourceDirectory>src\main\java\com\qualitesys</sourceDirectory>  
-    <!--
-        <testSourceDirectory>src\test\java\com\qualitesys</testSourceDirectory>
-        -->  
     <testSourceDirectory>src\test\java</testSourceDirectory>  
-    <!-- Modif D.C. 20/01/2010 pour deployer vers www.qualitesys.com
-        -->  
-    <extensions> 
-      <!-- Enabling the use of FTP -->  
-      <extension> 
-        <groupId>org.apache.maven.wagon</groupId>  
-        <artifactId>wagon-ftp</artifactId>  
-        <version>2.0</version> 
-      </extension> 
-    </extensions>  
     <plugins> 
       <plugin> 
         <groupId>org.apache.maven.plugins</groupId>  
@@ -184,25 +165,6 @@
           </archive> 
         </configuration> 
       </plugin>  
-      <!--
-            <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-pdf-plugin</artifactId>
-              <executions>
-                    <execution>
-                      <id>pdf</id>
-                      <phase>site</phase>
-                      <goals>
-                            <goal>pdf</goal>
-                      </goals>
-                      <configuration>
-                            <outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
-                            <includeReports>false</includeReports>
-                      </configuration>
-                    </execution>
-              </executions>
-            </plugin>
-            -->  
       <plugin> 
         <groupId>com.qualitesys.maven.plugins</groupId>  
         <artifactId>qcr-maven-plugin</artifactId> 
@@ -213,31 +175,8 @@
 		  <!--
 		  <version>3.2</version>  
 		  -->
-		   <dependencies>
-			<dependency>
-			  <groupId>org.apache.maven.doxia</groupId>
-			  <artifactId>doxia-module-markdown</artifactId>
-			  <version>1.3</version>
-			</dependency>
-		  </dependencies>			  
 		</plugin>
 		<plugin>
-			<groupId>org.apache.maven.plugins</groupId>
-			<artifactId>maven-pdf-plugin</artifactId>
-			<executions>
-				<execution>
-					<id>pdf</id>
-					<phase>site</phase>
-					<goals>
-						<goal>pdf</goal>
-					</goals>
-					<configuration>
-						<outputDirectory>${project.reporting.outputDirectory}</outputDirectory>
-						<includeReports>false</includeReports>
-					</configuration>
-				</execution>
-			</executions>
-		</plugin>
     </plugins> 
   </build>  
   <description>Maven plugin to QualityChecker product from QualiteSys. See http://www.qualitesys.com/ 3.0.4 : Includes VB6, java, php, Powerbuilder 3.0.5 : fixes for Powerbuilder 3.0.11 : fixes bug for VB6, precedences 3.0.12 : fixes bugs for C# 3.1.01 : Report + class hierarchy 3.1.02 : Caracteres controle pour C# 3.1.03 : Windows hardcopy in static web site generation 3.1.04 : bug fix chainage et constantes 3.1.05 : QC-CSHCWE390, QC-CSHCWE392, QC-CSHCWE481, QC-CSHCWE484, QC-CSHCWE584 added 3.1.06 : QC-CSHCWE585 added 3.1.07 : QC-???CWE833 deadlock added 3.1.08 : Global security check 3.1.09 : java @interface bug 3.1.10 : bug in Xslt (byte-&gt;int) 3.1.11 : bug on generics 3.1.12 : on the 2011_01_03 global + deadlock 3.11.01.02 : on the 2011_01_23 bug on C# for global::xx in designer .aspx 3.11.01.03 : langage aspx 3.11.01.04 : on the 2011_01_27 bug mix HTML et C# 3.11.01.05 : on the 2011_01_29 bug HTML 3.11.01.06 : on the 2011_01_30 buf %= for ASPX 3.11.02.07 : on the 2011_02_04 HTML syntax same as ASPX 3.11.02.08 : on the 2011_02_05 HTML inclused tags 3.11.02.09 : on the 2011_02_07 Reporting static site bug 3.11.02.10 : on the 2011_02_09 HTML bug &gt;= etc 3.11.02.11 : on the 2011_02_10 HTML /* and */ bug 3.11.02.12 : on the 2011_02_11 HTML comments &lt;!-- --&gt; 3.11.02.13 : on the 2011_02_12 ASP000001 to ASP000003 error codes 3.11.02.14 : on the 2011_02_16 rempl symbol euro 3.11.02.15 : on the 2011_02_17 report 3.11.02.16 : on the 2011_02_18 report 3.11.02.17 : on the 2011_02_21 report html bug 3.11.02.18 : on the 2011_02_24 html bug 3.11.02.19 : on the 2011_02_26 html bug 3.11.03.20 : on the 2011_03_01 html br img 3.11.03.21 : on the 2011_03_02 xml_cle 3.11.03.22 : on the 2011_03_06 CDATA comments 3.11.03.23 : on the 2011_03_09 http source 3.11.03.24 : on the 2011_03_09 http source 3.11.03.25 3.11.03.26 : on the 2011_03_12 complete url repository 3.11.03.27 : on the 2011_03_14 reporting bug 3.11.03.28 : on the 2011_03_16 reporting bug 3.11.03.29 : on the 2011_03_17 reporting bug 3.11.03.30 : on the 2011_03_19 html files 3.11.03.31 : on the 2011_03_21 ETO NavigateUrl detection 3.11.03.32 : on the 2011_03_23 CMS:MentionsLegales 3.11.03.33 : on the 2011_03_26 perf 3.11.03.34 : on the 2011_03_28 Prix 3.11.03.35 : on the 2011_03_31 doctype and html 3.11.03.36 : on the 2011_04_05 bug for &lt;30 3.11.04.37 : on the 2011_04_06 bug */ for css comments in Quelconque 3.11.04.38 : on the 2011_04_07 bug #fff for ASPX 3.11.04.39 : on the 2011_04_09 buf # for ASPX 3.11.04.40 : on the 2011_04_10 error index more simple 3.11.04.41 : on the 2011_04_12 special onclick for google 3.11.04.42 : on the 2011_04_13 cross ref en commentaire 3.11.04.43 : on the 2011_04_14 various bugs 3.11.04.44 : on the 2011_04_18 url check report 3.11.04.45 : on the 2011_04_20 added page load time (ms) 3.11.04.46 : on the 2011_04_21 url for css 3.11.04.47 : on the 2011_04_23 html form 3.11.04.48 : on the 2011_04_27 url time 3.11.04.49 : on the 2011_04_28 broken url 3.11.04.50 : on the 2011_04_29 port number # to : 3.11.04.51 : on the 2011_04_29 bug 3.11.04.52 : on the 2011_04_29 flash file url 3.11.04.53 : on the 2011_04_29 flash 3.11.05.54 : on the 2011_05_03 broken url csv file 3.11.05.55 : on the 2011_05_03 mail comment 3.11.05.56 3.11.05.57 : on the 2011_05_06 balise ETO 3.11.05.58 : on the 2011_05_09 OK for broken url 3.11.05.59 : on the 2011_05_11 filtre url report 3.11.05.60 : on the 2011_05_12 traces off 3.11.05.61 : on the 2011_05_13 user/pwd apache HttpClient 3.11.05.62 : on the 2011_05_16 directory scan en comm 3.11.05.63 : on the 2011_05_17 http post commands 3.11.05.64 : on the 2011_05_19 report split 3.11.05.65 : on the 2011_05_21 javax.mail jar change 3.11.05.66 : on the 2011_05_23 class hierarchy UML diagram 3.11.05.67 : on the 2011_05_25 Server Error added 3.11.05.68 : on the 2011_05_29 language trace ws 3.11.05.69 : on the 2011_05_31 sort directory scan 3.11.06.70 : on the 2011_06_01 qcr_result.xml change 3.11.06.71 : on the 2011_06_03 new sonarcoremetrics 3.11.06.72 : on the 2011_06_11 code and resources refactoring 3.11.06.73 : on the 2011_06_16 logging cleanup 3.11.06.74 : on the 2011_06_20 THIS token for Pbl 3.11.06.75 : on the 2011_06_30 new mojo qcrgoalhttpscan 3.11.07.76 : on the 2011_07_02 html special symbols 3.11.07.77 : on the 2011_07_07 pbl changes 3.11.07.78 : on the 2011_07_14 http 3.11.07.79 : on the 2011_07_16 CMS:MentionReference 3.11.07.80 : on the 2011_07_18 CMS sur http ASP000027 3.11.07.81 : on the 2011_07_20 debug mode parameter 3.11.07.82 : on the 2011_07_23 C# fixing 3.11.07.83 : on the 2011_07_27 C# fixing 3.11.08.84 : on the 2011_08_15 java7 features 3.11.08.85 : on the 2011_08_16 C# linq join 3.11.08.86 : on the 2011_08_17 IIS log analysis "iis" language 3.11.08.87 : on the 2011_08_21 C# throw 3.11.08.88 : on the 2011_08_31 IIS additional rules 3.11.09.89 : on the 2011_09_02 change in NTCredentials 3.11.09.90 : on the 2011_09_08 IIS 3.11.09.91 : on the 2011_09_14 IIS logs, security rules 3.11.09.92 : on the 2011_09_18 IIS log statistics in Maven Site Report 3.11.09.93 : on the 2011_09_24 Ponderation double 3.11.10.94 : on the 2011_10_03 C# bug fix (type_parameters) 3.11.10.95 : on the 2011_10_16 static report change 3.11.10.96 : on the 2011_10_18 Php bug fix for pointer references 3.11.10.97 : on the 2011_10_20 in Php class variable are not final CWE493 and 500 3.11.10.98 : on the 2011_10_25 bug fix IIS 3.11.10.99 : on the 2011_10_26 Pbl HA$PBExportHeader 3.11.10.100 : on the 2011_10_27 Iis bug fix 3.11.10.101 : on the 2011_10_28 link_decl change to __all_files 3.11.11.102 : on the 2011_11_01 shrink change 3.11.11.103 : on the 2011_11_05 Php security 3.11.11.104 : on the 2011_11_11 Jenkins 3.11.11.105 : on the 2011_11_13 IIS shifted into IIS and STT 3.12.04.106 : on the 2012_04_28 Sonar 3.0 3.12.04.107 : on the 2012_04_30 bug fix in QcrReporting 3.12.05.108 : on the 2012_05_04 STT000134 added, ASP000025 updated 3.12.05.109 : on the 2012_05_07 code cleanup 3.12.05.110 : on the 2012_05_08 minor changes xsl jar download 3.12.05.111 : on the 2012_05_09 added STT000135 to 138 3.12.05.112 : on the 2012_05_09 minor bug fix 3.12.05.113 : on the 2012_05_10 minor bug STT 3.12.05.114 : on the 2012_05_10 bug for DOCTYPE in Aspx 3.12.05.115 : on the 2012_05_13 recursive vs list for httpscan 3.12.05.116 : on the 2012_05_15 minor bug fix 3.12.05.117 : on the 2012_05_16 scan dir bug fix 3.12.05.118 : on the 2012_05_19 outputDirectory bug fix 3.12.05.119 : on the 2012_05_20 abal bug fix 3.12.05.120 : on the 2012_05_21 change name from maven-qcr-plugin to qcr-maven-plugin 3.12.05.121 : on the 2012_05_24 STT change ans cosmetic 3.12.05.122 : on the 2012_05_25 LogEntry patch 3.12.05.123 : on the 2012_05_27 split java and resources in 2 seperate jar files and maven plugin 3.12.05.124 : on the 2012_05_27 for test 3.12.05.125 : on the 2012_05_31 sourceEncoding patch 3.12.06.126 : on the 2012_06_02 minor bug 3.12.06.127 : on the 2012_06_04 report bug fix 3.12.06.128 : on the 2012_06_04 minor bug 3.12.06.129 : on the 2012_06_05 report bug fix 3.12.06.130 : on the 2012_06_11 report bug 3.12.06.131 : on the 2012_06_13 reporting99 features 3.12.06.132 : on the 2012_06_14 sendmailto multi email + file delete gc 3.12.06.133 : on the 2012_06_16 http 404 violation 3.12.06.134 : on the 2012_06_17 http erros in all_files 3.12.06.135 : on the 2012_06_18 ASP000054 HTTP not 200 3.12.06.136 : on the 2012_06_19 ASP000054 patch 3.12.06.137 : on the 2012_06_21 idem 3.12.06.138 : on the 2012_06_24 security patch 3.12.06.139 : on the 2012_06_25 CSH000008 and STT999997 patch 3.12.06.140 : on the 2012_06_26 LogEntry patch 3.12.06.141 : on the 2012_06_27 LogEntry patch 3.12.06.142 : on the 2012_06_30 ASP999996 for CPD 3.12.07.143 : on the 2012_07_01 CPD(999996) for aspx, csh, java, pbl, php, vb6, cpp 3.12.07.144 : on the 2012_07_07 customer applied to CODES 3.12.07.145 : on the 2012_07_08 ASP000055 added 3.12.07.146 : on the 2012_07_12 creds bug fix 3.12.07.147 : on the 2012_07_14 ASP000056 added 3.12.07.148 : on the 2012_07_17 email logs in Reporting01 3.12.07.149 : on the 2012_07_18 ASP000057 added, ASP000036 changed, ASP000055 changed 3.12.07.150 : on the 2012_07_27 CSH000009 3.12.08.151 : on the 2012_08_21 CPD commented 3.12.08.152 : on the 2012_08_29 ASP000058 3.12.09.153 : on the 2012_09_01 ASP000058 to ASP000071 3.12.09.154 : on the 2012_09_09 sonar.logformat added for iis 3.12.09.155 : on the 2012_09_12 adding CSS compat rules 3.12.09.156 : on the 2012_09_22 inline improuvment 3.12.09.157 : on the 2012_09_27 js files for aspx language 3.12.10.158 : on the 2012_10_01 url filter for httpscan 3.12.10.159 : on the 2012_10_07 inline traces 3.12.10.160 : on the 2012_10_13 file delete optim 3.12.10.161 : on the 2012_10_16 ip histogram in report04 3.12.10.162 : on the 2012_10_20 logload zip patch 3.12.10.163 : on the 2012_10_25 iis logload patch 3.12.11.164 : on the 2012_11_05 AutoTest for java 3.12.11.165 : on the 2012_11_08 degzip patch 3.12.11.166 : on the 2012_11_09 iis logload patch 3.12.11.167 : on the 2012_11_12 iis patch for zeus date 3.12.11.168 : on the 2012_11_14 logload logloadhouroffset 3.12.11.169 : on the 2012_11_15 JAV000001 rule 3.12.11.170 : on the 2012_11_18 JAVCWE476 and autotestgenerate for java 3.12.11.171 : on the 2012_11_19 bug fix QcrCommun 3.12.11.172 : on the 2012_11_24 CSHCWE484 bug fix continue case 3.12.11.173 : on the 2012_11_27 IIS empty user agent 3.12.12.174 : on the 2012_12_02 CWE833 (deadlock) for java and C# 3.12.12.175 : on the 2012_12_10 buf fix http 3.12.12.176 : on the 2012_12_12 ASP000053 new case, ISS user agent, CSHCWE476, JAVCWE476 bug fix 3.12.12.177 : on the 2012_12_16 java optim 3.12.12.178 : on the 2012_12_23 perf option for WsQcrressources 3.13.01.179 : on the 2013_01_07 CSHCWE476 patch IsNullOrEmpty, css_selector, STT000139 3.13.01.180 : on the 2013_01_08 ASP000089 patch, aspx css patch ternary expression 3.13.01.181 : on the 2013_01_16 aspx http filter 3.13.01.182 : on the 2013_01_18 ftpscanner socket abort 3.13.01.183 : on the 2013_01_20 autogeneratesource goal improvements 3.13.01.184 : on the 2013_01_21 log load ftp bug 3.13.01.185 : on the 2013_01_22 FTPScanner bug NPE 3.13.01.186 : on the 2013_01_24 FTPScanner connect / disconnect 3.13.01.187 : on the 2013_01_26 FTPScanner setKeepAliveTimeout 3.13.01.188 : on the 2013_01_28 STT000140 and STT000141 added 3.13.01.189 : on the 2013_01_29 STT000142 to 147 added 3.13.02.190 : on the 2013_02_04 STT000148 to 151 added 3.13.02.191 : on the 2013_02_05 rempl . by _ filebrut 3.13.02.192 : on the 2013_02_09 force . to - filebrut 3.13.02.193 : on the 2013_02_11 STT000152, 153 added 3.13.02.194 : on the 2013_02_12 STT000154 to 158 added 3.13.02.195 : on the 2013_02_17 httpscan bug fix, STT000159 to 162 added 3.13.02.196 : on the 2013_02_19 STT000163 to 165 added 3.13.02.197 : on the 2013_02_20 CSH000018 added 3.13.02.198 : on the 2013_02_23 report bug fix 3.13.03.199 : on the 2013_03_01 CSH000019 to 23 and JAV000002 added 3.13.03.200 : on the 2013_03_04 report bug fix, CSH hierarchy for interface 3.13.03.201 : on the 2013_03_09 STT000166 to 167 added, IISXXXXXX user agent updated 3.13.03.202 : on the 2013_03_13 ASP000103 added 3.13.03.203 : on the 2013_03_14 STT000168 added, IIS001100 added 3.13.03.204 : on the 2013_03_16 STT000169 added 3.13.03.205 : on the 2013_03_17 STT999996 for svclog added 3.13.03.206 : on the 2013_03_19 IIS useragent updated 3.13.03.207 : on the 2013_03_21 IIS useragent updated 3.13.03.208 : on the 2013_03_23 IIS001101 added 3.13.03.209 : on the 2013_03_24 STT000170 and 171 added 3.13.03.210 : on the 2013_03_25 ASP000104 added 3.13.03.211 : on the 2013_03_26 STT000172, 173 added 3.13.03.212 : on the 2013_03_27 STT000174 added, ASP000105 3.13.04.213 : on the 2013_04_01 STT999994, 999995 added for MS SQLSERVER, QCRUSERAGENT added, IIS001102 added 3.13.04.214 : on the 2013_04_02 ASP000105 updated 3.13.04.215 : on the 2013_04_06 STT000175, CSH000024 added 3.13.04.216 : on the 2013_04_08 STT000176 to 180, CSH000025 added 3.13.04.217 : on the 2013_04_09 STT000181 added 3.13.04.218 : on the 2013_04_10 STT000182 to 184 added 3.13.04.219 : on the 2013_04_13 STT000185 added 3.13.04.220 : on the 2013_04_15 STT000186 to 191 added 3.13.04.221 : on the 2013_04_17 date format patch for iis and stress 3.13.04.222 : on the 2013_04_20 stressmojo : logformat required, methodandstem added to logload 3.13.04.223 : on the 2013_04_27 binary png excluded from php code generation 3.13.05.224 : on the 2013_05_01 stressmojo evols 3.13.05.225 : on the 2013_05_03 email and report for stressmojo, report01 bug fix 3.13.05.226 : on the 2013_05_05 stressmojo, stresspost added 3.13.05.227 : on the 2013_05_09 stressmojo multithreaded http requests 3.13.05.228 : on the 2013_05_10 aspx css_rule change, stressmojo report change 3.13.05.229 : on the 2013_05_13 stressmojo report change 3.13.05.230 : on the 2013_05_14 stressmojo email change, IIS001103 added 3.13.05.231 : on the 2013_05_15 stressmojo change 3.13.05.232 : on the 2013_05_16 STT0000192, 193, stressthreads optionnal 3.13.05.233 : on the 2013_05_18 reporting06 forbidden urls, ASP000106, 107 3.13.05.234 : on the 2013_05_20 stress PNG images 3.13.05.235 : on the 2013_05_20 stress PNG change 3.13.05.236 : on the 2013_05_21 stress PNG change 3.13.05.237 : on the 2013_05_22 reporting04, stress IMG 3.13.05.238 : on the 2013_05_23 reporting04 timetaken nb min max 3.13.05.239 : on the 2013_05_25 STT000194, 195 3.13.05.240 : on the 2013_05_28 csh chainage 3.13.05.241 : on the 2013_05_29 stt bug fix 3.13.05.242 : on the 2013_05_30 stress graph 3.13.05.243 : on the 2013_05_31 stressnbreqsperminute added 3.13.06.244 : on the 2013_06_02 report04 bug fix, csh bug fix 3.13.06.245 : on the 2013_06_03 report04 sec, stress image, httpscan file lock 3.13.06.246 : on the 2013_06_09 STT000196 to 198 added 3.13.06.247 : on the 2013_06_16 logloag : mask string array 3.13.06.248 : on the 2013_06_17 stress image, STT xsl bug fix 3.13.06.249 : on the 2013_06_22 ASP000108 added 3.13.06.250 : on the 2013_06_27 ASP000036 bug fix 3.13.06.251 : on the 2013_06_29 exclude binary file detection compile 3.13.07.252 : on the 2013_07_03 cookies 3.13.07.253 : on the 2013_07_04 traces, releaseconnection rem 3.13.07.254 : on the 2013_07_08 ASP000050 modif 3.13.07.255 : on the 2013_07_10 ASP000050 modif 3.13.07.256 : on the 2013_07_17 CSH autogenerated, CSH000018 upd 3.13.07.257 : on the 2013_07_21 reporting01 bug fix 3.13.07.258 : on the 2013_07_22 STT000203 added 3.13.07.259 : on the 2013_07_23 ftpload bug for linux 3.13.07.260 : on the 2013_07_25 web.config for csh 3.13.08.261 : on the 2013_08_05 no change on qcr-naven-plugin, all sonar plugins updated sourceimporter bug (override should... removed) 3.13.08.262 : on the 2013_08_18 Google Static Maps for IIS Ip localisation QcrReporting04 3.13.08.263 : on the 2013_08_19 several bug fix 3.13.08.264 : on the 2013_08_20 ASP000020 bug fix 3.13.08.265 : on the 2013_08_22 bug fix 3.13.08.266 : on the 2013_08_24 CSH syntax bug fix 3.13.08.267 : on the 2013_08_26 auto-generated bug fix, IIS001105, 1106, 1107 added 3.13.08.268 : on the 2013_08_27 CSH bug fix 3.13.08.269 : on the 2013_08_28 IIS favico bug fix 3.13.08.270 : on the 2013_08_29 STT000204 to 207 3.13.08.271 : on the 2013_08_31 bug fix on non ascii files for powerbuilder 3.13.09.272 : on the 2013_09_01 syntax bug fix for powerbuilder 3.13.09.273 : on the 2013_09_02 report04 bug fix 3.13.09.274 : on the 2013_09_03 report04 bug fix, stt000207 rename 3.13.09.275 : on the 2013_09_04 PBL001001 custom rule 3.13.09.276 : on the 2013_09_14 added qcrgoalgeneratecustomrulesset and custom rule fonctions 3.13.09.277 : on the 2013_09_18 IIS001108 and 1109, STT000208, 209 added 3.13.09.278 : on the 2013_09_23 aspx html_directive_erreur rollback since 2013_07_21 3.13.09.279 : on the 2013_09_28 JAV000003 added 3.13.09.280 : on the 2013_09_30 STT list over 200 items... 3.13.10.281 : on the 2013_10_01 STT000210 to 212 added 3.13.10.282 : on the 2013_10_02 IIS empty user agent patch, STT000213 to 218 added 3.13.10.283 : on the 2013_10_03 STT000219 to 222, IIS001110 3.13.10.284 : on the 2013_10_05 ASP000109 added, STT000223 added 3.13.10.285 : on the 2013_10_08 STT000224 added 3.13.10.286 : on the 2013_10_14 IIS001111 , 001112 added, STT000224 to 230 added 3.13.10.287 : on the 2013_10_15 IIS001113 added 3.13.10.288 : on the 2013_10_21 CSH000009 bug fix 3.13.10.289 : on the 2013_10_22 version refresh 3.13.10.290 : on the 2013_10_24 STT000231, IIS001114 3.13.11.291 : on the 2013_11_03 memory leak bug fix 3.13.11.292 : on the 2013_11_04 Stt double LogEntry work around 3.13.11.293 : on the 2013_11_05 STT000232 to 237 added 3.13.11.294 : on the 2013_11_07 STT000111 patch, IIS001055 1056 ajustement 3.13.11.295 : on the 2013_11_09 IIS ip hostname remove too long 3.13.11.296 : on the 2013_11_11 IIS001115, STT00238 to 240 added 3.13.11.297 : on the 2013_11_12 IIS bug fix 3.13.11.298 : on the 2013_11_14 IIS bug fix 3.13.11.299 : on the 2013_11_15 IIS001116 added 4.13.11.300 : on the 2013_11_18 SonarQube v4.0, IIS001116 patch, STT000241 added 4.13.11.301 : on the 2013_11_19 STT patch 4.13.11.302 : on the 2013_11_21 IIS001116, 1117 added 4.13.11.303 : on the 2013_11_21 IIS patch 4.13.11.304 : on the 2013_11_26 STT patch 4.13.11.305 : on the 2013_11_27 ASP000026 patch 4.13.12.306 : on the 2013_12_03 Pbl extract, Java allfile patch 4.13.12.307 : on the 2013_12_04 Added PblExtract mojo qcrgoalpblextract 4.13.12.308 : on the 2013_12_08 Added QcrReporting97 js and css comparison from staging and production 4.13.12.309 : on the 2013_12_09 Reporting clean up 4.13.12.310 : on the 2013_12_16 QcrHttp releaseConnection 4.13.12.311 : on the 2013_12_21 OpenJdk patch 4.13.12.312 : on the 2013_12_25 IIS001119 added 4.13.12.313 : on the 2013_12_28 copyFileBrut memory cleanup 4.13.12.314 : on the 2013_12_29 reduce memory use for IIS and STT 4.13.12.315 : on the 2013_12_31 debugloops added 4.14.01.316 : on the 2014_01_03 patchs for sonarrunner 4.14.01.317 : on the 2014_01_05 memory leak compile fix 4.14.01.318 : on the 2014_01_06 IIS minor changes 4.14.01.319 : on the 2014_01_07 IIS001120 to 1122 added 4.14.01.320 : on the 2014_01_09 IIS001123, STT000242 added 4.14.01.321 : on the 2014_01_12 IIS001124, STT000243 added 4.14.01.322 : on the 2014_01_13 report04 patch 4.14.01.323 : on the 2014_01_15 CSH000029 added 4.14.01.324 : on the 2014_01_20 memory mgt 4.14.01.325 : on the 2014_01_25 IIS001125 added 4.14.01.326 : on the 2014_01_27 Reporting04 google maps cluster for ip localisation 4.14.01.327 : on the 2014_01_28 Reporting09 added 4.14.01.328 : on the 2014_01_30 IIS001126 added, IIS tunning 4.14.01.329 : on the 2014_01_30 updt 4.14.02.330 : on the 2014_02_01 STT000244 added 4.14.02.331 : on the 2014_02_04 STT000245, IIS001127 added 4.14.02.332 : on the 2014_02_10 STT000246 added 4.14.02.333 : on the 2014_02_11 IIS001027, 001001, 001052, 001076, 001053, 001070 bug fix cs-uri-stem added 4.14.02.334 : on the 2014_02_12 IIS001001, 001027 patch 4.14.02.335 : on the 2014_02_15 log cleanup 4.14.02.336 : on the 2014_02_16 Reporting10 added 4.14.02.337 : on the 2014_02_18 Reporting10 patch 4.14.02.338 : on the 2014_02_23 STT000139 patch 4.14.02.339 : on the 2014_02_25 IIS001128 added 4.14.03.340 : on the 2014_03_06 bug fix 4.14.03.341 : on the 2014_03_07 xslt bug fix 4.14.03.342 : on the 2014_03_08 cpp bug fix 4.14.03.343 : on the 2014_03_17 STT000247 and 248 added 4.14.03.344 : on the 2014_03_22 sonar.reporting added 4.14.03.345 : on the 2014_03_26 Reporting10 patch 4.14.03.346 : on the 2014_03_30 Reporting10 patch 4.14.03.347 : on the 2014_03_31 Reporting10 patch 4.14.04.348 : on the 2014_04_03 Reporting10 patch 4.14.04.349 : on the 2014_04_06 Reporting10 patch 4.14.04.350 : on the 2014_04_07 Reporting11 added 4.14.04.351 : on the 2014_04_08 Reporting11 patch 4.14.04.352 : on the 2014_04_09 Reporting11 patch 4.14.04.353 : on the 2014_04_10 Reporting11 patch 4.14.04.354 : on the 2014_04_11 STT000249, 250 added 4.14.04.355 : on the 2014_04_13 Reporting10 patch, STT000249 patch 4.14.04.356 : on the 2014_04_14 Reporting10 patch, STT000251 added 4.14.04.357 : on the 2014_04_15 STT000252 added 4.14.04.358 : on the 2014_04_21 Reporting10 patch 4.14.04.359 : on the 2014_04_22 STT000253 added 4.14.04.360 : on the 2014_04_23 Reporting10 patch 4.14.04.361 : on the 2014_04_24 Reporting11 patch 4.14.04.362 : on the 2014_04_25 Reporting10 and Reporting11 patch 4.14.05.363 : on the 2014_05_05 STT000254 added 4.14.05.364 : on the 2014_05_05 patch 4.14.05.365 : on the 2014_05_08 STT000255, 256 added 4.14.05.366 : on the 2014_05_08 patch 4.14.05.367 : on the 2014_05_09 patch 4.14.05.368 : on the 2014_05_11 reporting11ignoreip added 4.14.05.369 : on the 2014_05_12 STT000073 patch, reporting11 mail patch 4.14.05.370 : on the 2014_05_13 QcrFtpScanner patch 4.14.05.371 : on the 2014_05_14 Reporting11 patch 4.14.05.372 : on the 2014_05_14 logload patch 4.14.05.373 : on the 2014_05_15 IIS001129 to 1132 added 4.14.05.374 : on the 2014_05_16 getNodeList optim 4.14.05.375 : on the 2014_05_17 getNodeList optim, patch 4.14.05.376 : on the 2014_05_19 Reporting10 graph patch 4.14.05.377 : on the 2014_05_20 STT000257 added, reporting10 et 11 patch 4.14.05.378 : on the 2044_05_23 QcrFTPScanner timeout tunning 4.14.05.379 : on the 2014_05_24 QcrFTPScanner tuning 4.14.05.380 : on the 2014_05_26 Traces + Ctrl memoire 4.14.05.381 : on the 2014_05_31 C qcrtst for malloc and qcrtstarray array 4.14.06.382 : on the 2014_06_02 STT000051 patch 4.14.06.383 : on the 2014_06_04 STT000258 added 4.14.06.384 : on the 2014_06_10 IIS001133 added 4.14.06.385 : on the 2014_06_11 STT000259 260 added 4.14.06.386 : on the 2014_06_21 TXT language added 4.14.06.387 : on the 2014_06_26 Lxxxcalc optim 4.14.06.388 : on the 2014_06_26 Lxxxcalc optim 4.14.06.389 : on the 2014_06_27 sendmail sans blocage 4.14.06.390 : on the 2014_06_30 optim token 4.14.07.391 : on the 2014_07_03 reporting11 seuil 2000req 4.14.07.392 : on the 2014_07_04 reporting11 summary nb de ip/sessionid 4.14.07.393 : on the 2014_07_04 reporting11 summary nb de ip/sessionid 4.14.07.394 : on the 2014_07_05 sendmail patch reporting11 4.14.07.395 : on the 2014_07_06 send POST reporting11 4.14.07.396 : on the 2014_07_06 sendmail reporting11 4.14.07.397 : on the 2014_07_07 sendmail patch reporting11 4.14.07.398 : on the 2014_07_08 sendmail patch reporting11 4.14.07.399 : on the 2014_07_08 patch 4.14.07.400 : on the 2014_07_09 sendmail patch, IIS re order 4.14.07.401 : on the 2014_07_15 parser optim 4.14.07.402 : on the 2014_07_15 added sonar.reporting11blockingmailing property 4.14.07.403 : on the 2014_07_16 Blacklistage sendmail change 4.14.07.404 : on the 2014_07_16 cpp change, sendmail BL change 4.14.07.405 : on the 2014_07_17 Object for email + hostnames 4.14.07.406 : on the 2014_07_19 STT00261 added, stt LogEntry bug fix 4.14.07.407 : on the 2014_07_29 qcrfileclonecpp patch for linux 4.14.07.408 : on the 2014_07_29 cpp syntax gnu 4.14.07.409 : on the 2014_07_29 cpp syntax gnu 4.14.08.410 : on the 2014_08_06 QcrPblExtract fix 4.14.08.411 : on the 2014_08_06 token seeker fix 4.14.08.412 : on the 2014_08_08 memory comsump syntax analyser 4.14.08.413 : on the 2014_08_10 memory bug fix 4.14.08.414 : on the 2014_08_11 STT000262, 263, 264 added 4.14.08.415 : on the 2014_08_13 STT000265 to 273 added 4.14.08.416 : on the 2014_08_17 Cpp code generation fix 4.14.08.417 : on the 2014_08_17 IIS001134, STT00274 added 4.14.08.418 : on the 2014_08_17 STT999990 to 999994 added 4.14.08.419 : on the 2014_08_17 IIS001135 added 4.14.08.420 : on the 2014_08_18 IIS001136 1137 added 4.14.08.421 : on the 2014_08_18 added sonar.tailletabtoken 4.14.08.422 : on the 2014_08_20 STT000275, 276 added, send sessionko email 4.14.08.423 : on the 2014_08_20 patch 4.14.08.424 : on the 2014_08_20 patch reporting11sessionko 4.14.08.425 : on the 2014_08_21 patch 4.14.08.426 : on the 2014_08_21 IIS001138 added, STT updt 4.14.08.427 : on the 2014_08_22 debugcounters not static in qcrgoalcompile, reporting11 fixes 4.14.08.428 : on the 2014_08_25 quarterhourly for iis logs 4.14.08.429 : on the 2014_08_26 perf repo11 4.14.08.430 : on the 2014_08_27 memory optim 4.14.08.431 : on the 2014_08_28 ASP000110added 4.14.08.432 : on the 2014_08_29 IIS001139 and 1140 added 4.14.08.433 : on the 2014_08_31 IIS001141 added 4.14.09.434 : on the 2014_09_01 IIS optim 4.14.09.435 : on the 2014_09_01 IIS001142, 1143, 1201 to 24 added 4.14.09.436 : on the 2014_09_02 IIS001144, 1145 added 4.14.09.437 : on the 2014_09_02 bug fix IIS 4.14.09.438 : on the 2014_09_02 bug fix IIS 4.14.09.439 : on the 2014_09_03 IIS001200 added, send email 11 change 4.14.09.440 : on the 2014_09_03 patch 4.14.09.441 : on the 2014_09_05 IIS001102 patch 4.14.09.442 : on the 2014_09_08 report11 envoi mail hacking 4.14.09.443 : on the 2014_09_09 memory limit copyfilebrut 4.14.09.444 : on the 2014_09_09 1500 fichiers maxi 4.14.09.445 : on the 2014_09_11 IIS001147 to 1151 added 4.14.09.446 : on the 2014_09_12 patch 4.14.09.447 : on the 2014_09_14 IIS001152 STT000277 added 4.14.09.448 : on the 2014_09_14 ajt nb de sessions / boutique 4.14.09.449 : on the 2014_09_14 bug fix 4.14.09.450 : on the 2014_09_14 IIS001153 to 1162 added 4.14.09.451 : on the 2014_09_15 IIS001163 to 1168 added 4.14.09.452 : on the 2014_09_16 IIS001169 to 1172 added 4.14.09.453 : on the 2014_09_17 IIS001173 to 1176 added 4.14.09.454 : on the 2014_09_18 X-Cluster-Client-Ip 4.14.09.455 : on the 2014_09_18 IIS001177 to 1182 added 4.14.09.456 : on the 2014_09_19 patch 4.14.09.457 : on the 2014_09_20 patch url 4.14.09.458 : on the 2014_09_21 patch 4.14.09.459 : on the 2014_09_21 patch 4.14.09.460 : on the 2014_09_21 IIS001183 to 1187 added 4.14.09.461 : on the 2014_09_21 patch 4.14.09.462 : on the 2014_09_21 IIS001188 to 1198 added 4.14.09.463 : on the 2014_09_22 IIS001250 to 1260 added 4.14.09.464 : on the 2014_09_23 IIS001261 to 1265 added 4.14.09.465 : on the 2014_09_23 patch 4.14.09.466 : on the 2014_09_24 IIS001266 to 1270 added 4.14.09.467 : on the 2014_09_27 IIS001271 to 1278 added 4.14.09.468 : on the 2014_09_28 PATTERNHACK change 4.14.09.469 : on the 2014_09_28 IIS001279 to 1288 added 4.14.09.470 : on the 2014_09_29 IIS001289 to 1290 added 4.14.10.471 : on the 2014_10_04 patch 4.14.10.472 : on the 2014_10_04 reporting11 patch 4.14.10.473 : on the 2014_10_04 patch 4.14.10.474 : on the 2014_10_05 reporting11 patch 4.14.10.475 : on the 2014_10_06 IIS001291, 1292, STT000278 to 284 added 4.14.10.476 : on the 2014_10_07 patch BK 4.14.10.477 : on the 2014_10_09 IIS0001293 to 1296 added 4.14.10.478 : on the 2014_10_11 STT000285, 286 added 4.14.10.479 : on the 2014_10_11 STT000287 to 296 added 4.14.10.480 : on the 2014_10_12 STT000297 to 302 added 4.14.10.481 : on the 2014_10_13 plages IP 4.14.10.482 : on the 2014_10_13 patch 4.14.10.483 : on the 2014_10_13 STT000303, 304 added 4.14.10.484 : on the 2014_10_14 patch 4.14.10.485 : on the 2014_10_14 patch 4.14.10.486 : on the 2014_10_14 patch 4.14.10.487 : on the 2014_10_15 rep11 patch 4.14.10.488 : on the 2014_10_16 traces 4.14.10.489 : on the 2014_10_18 patternhack patch 4.14.10.490 : on the 2014_10_18 patch 4.14.10.491 : on the 2014_10_19 BK patch 4.14.10.492 : on the 2014_10_21 reporting11 patch 4.14.10.493 : on the 2014_10_21 reporting11 patch 4.14.10.494 : on the 2014_10_21 reporting11 patch 4.14.10.495 : on the 2014_10_21 reporting11 patch 4.14.10.496 : on the 2014_10_22 reporting11 patch 4.14.10.497 : on the 2014_10_28 STT00305, BK sur hacking 4.14.10.498 : on the 2014_10_28 reporting11 optim 4.14.10.499 : on the 2014_10_28 optim rollback 4.14.10.500 : on the 2014_10_29 suppr tempcontrols 4.14.10.501 : on the 2014_10_29 IIS001297 added 4.14.10.502 : on the 2014_10_30 patch BK 4.14.10.503 : on the 2014_10_30 patch BK 4.14.10.504 : on the 2014_10_30 IIS001298 to 1308 added, STT000306 to 315 added 4.14.10.505 : on the 2014_10_30 suppr script reporting11 4.14.11.506 : on the 2014_11_01 IIS001309 to 1313 added 4.14.11.507 : on the 2014_11_03 reporting11 patch 4.14.11.508 : on the 2014_11_04 reporting11 patch 4.14.11.509 : on the 2014_11_08 IIS001314 to 1317 added 4.14.11.510 : on the 2014_11_08 IIS001318 added 4.14.11.511 : on the 2014_11_09 Pbl optim 4.14.11.512 : on the 2014_11_09 logging 4.14.11.513 : on the 2014_11_11 traces BK et WL pour BOI dans mail 4.14.11.514 : on the 2014_11_11 envoi trap snmp 4.14.11.515 : on the 2014_11_11 patch 4.14.11.516 : on the 2014_11_12 invalid characters copyfilebrut 4.14.11.517 : on the 2014_11_16 reporting11 graph 4.14.11.518 : on the 2014_11_16 patch 4.14.11.519 : on the 2014_11_16 patch 4.14.11.520 : on the 2014_11_16 patch 4.14.11.521 : on the 2014_11_16 patch 4.14.11.522 : on the 2014_11_16 patch 4.14.11.523 : on the 2014_11_16 patch 4.14.11.524 : on the 2014_11_18 patch 4.14.11.525 : on the 2014_11_18 patch 4.14.11.526 : on the 2014_11_20 IIS001319, 1320, STT000316,317 added 4.14.11.527 : on the 2014_11_21 comm off 4.14.11.528 : on the 2014_11_21 comm off 4.14.11.529 : on the 2014_11_21 logloadnbmaxfiles 4.14.11.530 : on the 2014_11_21 patch comm 4.14.11.531 : on the 2014_11_22 reporting11 patch 4.14.11.532 : on the 2014_11_23 reporting11 patch 4.14.11.533 : on the 2014_11_23 copyfilebrut optim 4.14.11.534 : on the 2014_11_24 STT000318 to 322 added 4.14.11.535 : on the 2014_11_30 reporting11 patch 4.14.11.536 : on the 2014_11_30 reporting11 patch 4.14.12.537 : on the 2014_12_01 reporting09 patch for widget 4.14.12.538 : on the 2014_12_04 CSH000015 patch, Pbl syntax patch 4.14.12.539 : on the 2014_12_05 IIS001321, 1322 added 4.14.12.540 : on the 2014_12_05 IIS001322 patch 4.14.12.541 : on the 2014_12_06 IIS plugin patch 4.14.12.542 : on the 2014_12_07 TMS TAG added 4.14.12.543 : on the 2014_12_07 reporting01 patch 4.14.12.544 : on the 2014_12_08 STT000323 added 4.14.12.545 : on the 2014_12_11 STT000324, IIS001323,1324 added 4.14.12.546 : on the 2014_12_15 CSH syntax bug fix 4.14.12.547 : on the 2014_12_16 CSH syntax bug fix 4.14.12.548 : on the 2014_12_18 UTF change 4.14.12.549 : on the 2014_12_19 PATTERNHACK 000 4.14.12.550 : on the 2014_12_22 CSH and PBL syntax patch 4.14.12.551 : on the 2014_12_23 IIS001325, 1326 added 4.14.12.552 : on the 2014_12_28 ASPX patch 4.14.12.553 : on the 2014_12_31 Pblextract hack 4.15.01.554 : on the 2015_01_05 CSH syntax patch 4.15.01.555 : on the 2015_01_06 ASP00111, IIS001327 to 1329 added 4.15.01.556 : on the 2015_01_08 email BK, ASP HTML5 4.15.01.557 : on the 2015_01_08 CSH bug fix 4.15.01.558 : on the 2015_01_08 CSH bug fix 4.15.01.559 : on the 2015_01_10 bk email patch 4.15.01.560 : on the 2015_01_11 CSH000325,326 added 4.15.01.561 : on the 2015_01_11 CSH000327 to 330 added 4.15.01.562 : on the 2015_01_11 CSH000331,332 added 4.15.01.563 : on the 2015_01_11 IIS001330 added 4.15.01.564 : on the 2015_01_12 STT000333 to 336 added 4.15.01.565 : on the 2015_01_13 STT000337, IIS001331 to 1333 added 4.15.01.566 : on the 2015_01_14 syntax patch aspx 4.15.01.567 : on the 2015_01_18 report10 png 4.15.01.568 : on the 2015_01_19 STT000338 to 345 added 4.15.01.569 : on the 2015_01_21 IIS001334 to 1341 added 4.15.01.570 : on the 2015_01_22 IIS optim 4.15.01.571 : on the 2015_01_22 STT000346 to 352 added 4.15.01.572 : on the 2015_01_22 iis bug fix 4.15.01.573 : on the 2015_01_23 STT000353 to 359, IIS001342 to 1344 added 4.15.01.574 : on the 2015_01_26 report10 bug fix 4.15.01.575 : on the 2015_01_27 STT000360, IIS001345 to 1350 added 4.15.01.576 : on the 2015_01_28 IIS001351 to 1353 added 4.15.02.577 : on the 2015_02_01 added json and sparql languages 4.15.02.578 : on the 2015_02_02 json bug fix 4.15.02.579 : on the 2015_02_06 STT bug fix 4.15.02.580 : on the 2015_02_06 trace report10 4.15.02.581 : on the 2015_02_08 google graph bug fix report10 4.15.02.582 : on the 2015_02_09 google graph bug fix 4.15.02.583 : on the 2015_02_11 STT000361 to 363, IIS001354,1355 added 4.15.02.584 : on the 2015_02_17 STT000364 to 366 added, IIS update 4.15.02.585 : on the 2015_02_27 syntax analysis optim 4.15.02.586 : on the 2015_02_27 optim ko java, rollback 4.15.03.587 : on the 2015_03_09 IIS001356 added 4.15.03.588 : on the 2015_03_12 STT000367 added 4.15.03.589 : on the 2015_03_24 Ip for Ko req sonar iis 4.15.03.590 : on the 2015_03_25 bug fix 4.15.03.591 : on the 2015_03_25 IIS001357 added 4.15.03.592 : on the 2015_03_25 bug fix 4.15.03.593 : on the 2015_03_26 CSH000030, 31 added 4.15.03.594 : on the 2015_03_30 STT000368,369 added 4.15.04.595 : on the 2015_04_02 multicritere logloadpatern sur ftp 4.15.04.596 : on the 2015_04_02 patch 4.15.04.597 : on the 2015_04_06 patch 4.15.04.598 : on the 2015_04_08 IIS001358, 1359 added 4.15.04.599 : on the 2015_04_08 BK update 4.15.04.600 : on the 2015_04_09 patch 4.15.04.601 : on the 2015_04_16 STT000370,371 added 4.15.04.602 : on the 2015_04_18 1Go max par qcr_result.xml 4.15.04.603 : on the 2015_04_18 FtpScaner log remove 4.15.04.604 : on the 2015_04_20 stt bug fix 4.15.04.605 : on the 2015_04_21 IIS001360 to 1362 added 4.15.05.606 : on the 2015_05_04 IIS001363 to 1366 added, STT000372 added, polymorphisme bug fix 4.15.05.607 : on the 2015_05_10 FTPScanner bug fix, name resolution 4.15.05.608 : on the 2015_05_10 IIS001367 to 1369 added 4.15.05.609 : on the 2015_05_10 IIS001370 added 4.15.05.610 : on the 2015_05_10 IIS001371, 1372 added 4.15.05.611 : on the 2015_05_14 STT000373, IIS001373 to 1378 added 4.15.05.612 : on the 2015_05_16 STT000374 to 378, IIS001379,1380 added 4.15.05.613 : on the 2015_05_18 STT000379, IIS001381 to 1385 added 4.15.05.614 : on the 2015_05_19 STT000380,381 and IIS001386 to 1388 added 4.15.05.615 : on the 2015_05_19 patch 4.15.05.616 : on the 2015_05_26 IIS001389 to 1392, STT000382 added 4.15.06.617 : on the 2015_06_01 webpagetest mojo added 4.15.06.618 : on the 2015_06_01 IIS001393 to 1398 added 4.15.06.619 : on the 2015_06_02 IIS001399 to 1402, STT000383 to 385 added 4.15.06.620 : on the 2015_06_05 IIS001403 to 1405 added 4.15.06.621 : on the 2015_06_06 STT000385 added 4.15.06.622 : on the 2015_06_06 IIS01406 to 1416 added 4.15.06.623 : on the 2015_06_07 STT000386, 387 added 4.15.06.624 : on the 2015_06_08 patchs divers 4.15.06.625 : on the 2015_06_09 ajt generateautotestignorememory 4.15.06.626 : on the 2015_06_16 ajt _aa_files.log pour IIS 4.15.06.627 : on the 2015_06_16 patch 4.15.06.628 : on the 2015_06_22 C# and polymorphism bug fix 4.15.07.629 : on the 2015_07_06 STT graphs 4.15.07.630 : on the 2015_07_06 clean up 4.15.07.631 : on the 2015_07_06 heure precedente et -1 pour graphe stt 4.15.07.632 : on the 2015_07_08 secu patch, -2 pour graphe stt 4.15.07.633 : on the 2015_07_12 secu bug fix, STT000389 to 391 added 4.15.07.634 : on the 2015_07_14 IIS001418,1419, STT000392,393 added 4.15.07.635 : on the 2015_07_18 secu patch 4.15.07.636 : on the 2015_07_26 secu patch 4.15.08.637 : on the 2015_08_11 perf optim 4.15.08.638 : on the 2015_08_11 perf optim 4.15.08.639 : on the 2015_08_11 perf optim 4.15.08.640 : on the 2015_08_11 suppr trierfichier 4.15.08.641 : on the 2015_08_15 syntax perf update 4.15.08.642 : on the 2015_08_16 compiler optim 4.15.08.643 : on the 2015_08_16 C syntax add 4.15.08.644 : on the 2015_08_21 IIS TTOTAL, CSH000031 for QueryString, Session, Params 4.15.09.645 : on the 2015_09_05 optim 4.15.09.646 : on the 2015_09_13 STT000398 to 402 added 4.15.09.647 : on the 2015_09_14 hack %00 suppr 4.15.09.648 : on the 2015_09_14 STT000403 to 406 added 4.15.09.649 : on the 2015_09_15 STT000407 to 409 added 4.15.09.650 : on the 2015_09_16 STT000410 added 4.15.09.651 : on the 2015_09_22 optim 4.15.09.652 : on the 2015_09_22 patch getSonarVersion 4.15.09.653 : on the 2015_09_22 patch getSonarVersion 4.15.09.654 : on the 2015_09_22 patch getSonarVersion 4.15.09.655 : on the 2015_09_23 getRights patch 4.15.09.656 : on the 2015_09_23 getRights patch 4.15.09.657 : on the 2015_09_23 getRights patch 4.15.09.658 : on the 2015_09_24 sonar.host.url 4.15.09.659 : on the 2015_09_26 courbes temps cumule, debit instantanne moy, min, max 4.15.09.660 : on the 2015_09_27 reporting10 patch 4.15.09.661 : on the 2015_09_27 reporting10 patch 4.15.09.662 : on the 2015_09_27 sonargetversion patch 4.15.09.663 : on the 2015_09_27 reporting10 patch 4.15.09.664 : on the 2015_09_30 reporting10 patch 4.15.09.665 : on the 2015_10_02 IIS001420, 1421 added 4.15.10.666 : on the 2015_10_03 optim 4.15.10.667 : on the 2015_10_04 sessionid + ip 4.15.10.668 : on the 2015_10_04 bug fix 4.15.10.669 : on the 2015_10_05 IIS001422,1423, AuthentNs sessionid 4.15.10.670 : on the 2015_10_05 bug fix 4.15.10.671 : on the 2015_10_08 bug fix Iis 4.15.10.672 : on the 2015_10_10 isBCO 4.15.10.673 : on the 2015_10_12 reporting09 pays -&gt; ips 4.15.10.674 : on the 2015_10_13 reporting09 patch 4.15.10.675 : on the 2015_10_13 patch 4.15.10.676 : on the 2015_10_15 IIS001424 added 4.15.10.677 : on the 2015_10_23 double ip patch 4.15.10.678 : on the 2015_10_31 STT000413 added 4.15.10.679 : on the 2015_10_31 patch 4.15.11.680 : on the 2015_11_04 Pbl syntax patch 4.15.11.681 : on the 2015_11_11 hack paterns 4.15.11.682 : on the 2015_11_11 patch 4.15.11.683 : on the 2015_11_11 hack paterns 4.15.11.684 : on the 2015_11_16 bug fix 4.15.11.685 : on the 2015_11_17 source code resource, IIS001425, 1426 added 4.15.11.686 : on the 2015_11_17 bug fix 4.15.11.687 : on the 2015_11_24 STT000414,415, IIS001428 to 1434 added 4.15.11.688 : on the 2015_11_26 IIS001435 to 1449 added 4.15.11.689 : on the 2015_11_28 IIS001450 to 1468 added 4.15.11.690 : on the 2015_11_28 bug fix 4.15.12.691 : on the 2015_12_01 IIS001469 to 1482 added 4.15.12.692 : on the 2015_12_05 bug fix 4.15.12.693 : on the 2015_12_06 bug fix 4.15.12.694 : on the 2015_12_06 bug fix 4.15.12.695 : on the 2015_12_06 bug fix 4.15.12.696 : on the 2015_12_06 IIS001483, STT00416 to 419 added, hack patterns 4.15.12.697 : on the 2015_12_08 bug fix 4.15.12.698 : on the 2015_12_12 bug fix csharp 4.15.12.699 : on the 2015_12_13 bug fix 4.15.12.700 : on the 2015_12_19 bug fix 4.15.12.701 : on the 2015_12_19 Secu bug fix 4.15.12.702 : on the 2015_12_19 Secu traces remove 4.15.12.703 : on the 2015_12_30 CSHCWE190, 191, STT000420 to 423 added 4.15.12.704 : on the 2015_12_30 patch 4.16.01.705 : on the 2016_01_03 patch c# syntax 4.16.01.706 : on the 2016_01_05 STT000424, IIS001484 to 1486 added 4.16.01.707 : on the 2016_01_05 reporting09 for stt 4.16.01.708 : on the 2016_01_10 graph bug fix, STT000425 to 428 added 4.16.01.709 : on the 2016_01_11 IIS001487 added 4.16.01.710 : on the 2016_01_12 bug fix 4.16.01.711 : on the 2016_01_12 bug fix 4.16.01.712 : on the 2016_01_13 patch for STT logs 4.16.01.713 : on the 2016_01_16 IIS001488 added 4.16.01.714 : on the 2016_01_17 STT000249 to 430 added 4.16.01.715 : on the 2016_01_18 Security patch 4.16.01.716 : on the 2016_01_23 Fraude sur reporting11 4.16.01.717 : on the 2016_01_23 patch 4.16.01.718 : on the 2016_01_23 patch 4.16.01.719 : on the 2016_01_23 patch 4.16.01.720 : on the 2016_01_25 patch 4.16.01.721 : on the 2016_01_28 STT00431 added 4.16.01.722 : on the 2016_01_31 CSH000032 change, XXX999995 change 4.16.01.723 : on the 2016_01_31 CSH000431 to 434 added 4.16.02.724 : on the 2016_02_02 CSH000435, 436 added 4.16.02.725 : on the 2016_02_03 CSH000437, IIS001489 to 1492 added 4.16.02.726 : on the 2016_02_16 logs 4.16.02.727 : on the 2016_02_17 logs 4.16.02.728 : on the 2016_02_21 secu logs 4.16.02.729 : on the 2016_02_27 secu optim 4.16.02.730 : on the 2016_02_28 secu logs 4.16.02.731 : on the 2016_02_29 CPD bug fix 4.16.03.732 : on the 2016_03_01 comm CPD 4.16.03.733 : on the 2016_03_01 bug fix 4.16.03.734 : on the 2016_03_02 suppr ref lib pmd 4.16.03.735 : on the 2016_03_04 cpd patch 4.16.03.736 : on the 2016_03_04 cpd patch 4.16.03.737 : on the 2016_03_06 cpd patch 4.16.03.738 : on the 2016_03_06 cpd patch 4.16.03.739 : on the 2016_03_10 cpd patch 4.16.03.740 : on the 2016_03_13 Secu optim 4.16.03.741 : on the 2016_03_20 deadlock optim 4.16.03.742 : on the 2016_03_24 IIS001493 to 1496, STT000438 to 441 added 4.16.03.743 : on the 2016_03_29 IIS001497 added, IIS copyfile optim 4.16.03.744 : on the 2016_03_29 STT000442 to 446 added, IIS001498, 1499 added 4.16.04.745 : on the 2016_04_02 secu optim 4.16.04.746 : on the 2016_04_02 log suppr 4.16.04.747 : on the 2016_04_03 resource optim 4.16.04.748 : on the 2016_04_07 suppr secu 00000000 4.16.04.749 : on the 2016_04_08 resource conso memoire 4.16.04.750 : on the 2016_04_08 CPD log 4.16.04.751 : on the 2016_04_09 autotests 4.16.04.752 : on the 2016_04_14 IIS001500 to 1505, STT000447 added, compile logs 4.16.04.753 : on the 2016_04_15 compilation optim 4.16.04.754 : on the 2016_04_19 compile optim 4.16.04.755 : on the 2016_04_21 IIS001506, STT000448 to 452 added 4.16.04.756 : on the 2016_04_27 STT000453 to 455 added 4.16.04.757 : on the 2016_04_30 ressource optim 4.16.05.758 : on the 2016_05_02 ressource optim, CSHARP using alias 4.16.05.759 : on the 2016_05_02 CSHARP using alias bug fix 4.16.05.760 : on the 2016_05_16 java Junit generation, suppr CPD 4.16.05.761 : on the 2016_05_26 generate junit bug fix 4.16.05.762 : on the 2016_05_29 precedence optim 4.16.05.763 : on the 2016_05_30 xsl optim 4.16.06.764 : on the 2016_06_01 roolback analyseur csh version 2016_04_15 4.16.06.765 : on the 2016_06_02 WsQcrLxxxCalc optim 4.16.06.766 : on the 2016_06_04 csh syntax optim 4.16.06.767 : on the 2016_06_05 Junit compl 4.16.06.768 : on the 2016_06_16 aug seuil suspicion de fraude, junit autotest gen change 4.16.06.769 : on the 2016_06_19 IIS001507 added, Junit optim 4.16.06.770 : on the 2016_06_19 pause 10ms 4.16.06.771 : on the 2016_06_20 rollback LogEntry 4.16.06.772 : on the 2016_06_22 IIS001508 added, reporting10 patch 4.16.06.773 : on the 2016_06_27 Junit optim 4.16.06.774 : on the 2016_06_30 Junit optim, asp NPE 4.16.06.775 : on the 2016_06_30 Junit optim 4.16.07.776 : on the 2016_07_02 getNomUnderscore pour xml sonar 4.16.07.777 : on the 2016_07_16 Junit optim 4.16.07.778 : on the 2016_07_16 Junit optim 4.16.07.779 : on the 2016_07_16 Junit optim 4.16.07.780 : on the 2016_07_22 Junit optim 4.16.08.781 : on the 2016_08_17 STT01xxxxx added 4.16.08.782 : on the 2016_08_18 STT 500 4.16.08.783 : on the 2016_08_21 CSHCWZ079, 080 added 4.16.08.784 : on the 2016_08_31 autotest compl 4.16.09.785 : on the 2016_09_10 cwe79 et 80 patch c#, CWE476 patch c# 4.16.09.786 : on the 2016_09_11 patchs 4.16.09.787 : on the 2016_09_26 Calc QcrCommun refactoring 4.16.09.788 : on the 2016_09_27 email wpt 4.16.09.789 : on the 2016_09_27 inline refacto, CSHCWE481 change 4.16.09.790 : on the 2016_09_29 webpagetest image mail 4.16.10.791 : on the 2016_10_01 webpagetest email patch 4.16.10.792 : on the 2016_10_05 webpagetest 4.16.10.793 : on the 2016_10_08 webpagetest 4.16.10.794 : on the 2016_10_08 webpagetest png coupes 4.16.10.795 : on the 2016_10_10 webpagetest sendto bugfix 4.16.10.796 : on the 2016_10_12 webpagetest rejeu 4.16.10.797 : on the 2016_10_17 autotest bugfix 4.16.10.798 : on the 2016_10_24 autotest optim IIS001520, 1521, 1522 added 4.16.10.799 : on the 2016_10_25 IIS001523,1524, STT000460 to 462 added 4.16.10.800 : on the 2016_10_26 asp chaine patch 4.16.10.801 : on the 2016_10_30 IIS001525 to 1529, STT000463 added 4.16.11.802 : on the 2016_11_07 aspx css syntax bug fix 4.16.11.803 : on the 2016_11_11 aspx extension 4.16.11.804 : on the 2016_11_12 aspx bugfix 4.16.11.805 : on the 2016_11_12 aspx bugfix 4.16.11.806 : on the 2016_11_13 aspx bugfix 4.16.11.807 : on the 2016_11_21 css bug fix 4.16.11.808 : on the 2016_11_23 css syntax 4.16.11.809 : on the 2016_11_27 css syntax 4.16.12.810 : on the 2016_12_01 css syntax 4.16.12.811 : on the 2016_12_02 css syntax 4.16.12.812 : on the 2016_12_03 css syntax 4.17.05.885</description>  
@@ -245,193 +184,4 @@
     <system>hudson</system>  
     <url>http://localhost:8080/job/qcr-maven-plugin/</url> 
   </ciManagement>  
-  <profiles> 
-    <profile> 
-      <id>profile_src_sans_ressources</id>  
-      <build> 
-        <plugins> 
-          <plugin> 
-            <artifactId>maven-jar-plugin</artifactId>  
-            <configuration> 
-              <excludes> 
-                <!--
-				<exclude>**/*.properties</exclude>
-				-->  
-                <exclude>**/*.xsl</exclude>  
-                <exclude>**/customrules*.xml</exclude>  
-                <!-- Modif D.C. 2015 08 30 pour rules centralisees -->  
-                <exclude>**/standardrules*.xml</exclude>  
-                <exclude>**/*.csv</exclude> 
-              </excludes> 
-            </configuration> 
-          </plugin> 
-        </plugins> 
-      </build> 
-    </profile>  
-    <profile> 
-      <id>profile_ressources_seules</id>  
-      <build> 
-        <plugins> 
-          <plugin> 
-            <artifactId>maven-jar-plugin</artifactId>  
-            <executions> 
-              <execution> 
-                <id>onlyres</id>  
-                <goals> 
-                  <goal>jar</goal> 
-                </goals>  
-                <phase>package</phase>  
-                <configuration> 
-                  <classifier>onlyres</classifier>  
-                  <includes> 
-                    <!-- Modif D.C. 2015 09 09 remis -->  
-                    <include>**/*.properties</include>  
-                    <include>**/*.xsl</include>  
-                    <include>**/customrules*.xml</include>  
-                    <include>**/standardrules*.xml</include> 
-                  </includes> 
-                </configuration> 
-              </execution> 
-            </executions> 
-          </plugin> 
-        </plugins> 
-      </build> 
-    </profile>  
-    <profile> 
-      <id>profile_standardrules_seules</id>  
-      <build> 
-        <plugins> 
-          <plugin> 
-            <artifactId>maven-jar-plugin</artifactId>  
-            <executions> 
-              <execution> 
-                <id>onlystdrules</id>  
-                <goals> 
-                  <goal>jar</goal> 
-                </goals>  
-                <phase>package</phase>  
-                <configuration> 
-                  <classifier>onlystdrules</classifier>  
-                  <includes> 
-                    <!-- Modif D.C. 2015 08 30 pour rules centralisees -->  
-                    <include>**/standardrules*.xml</include> 
-                  </includes> 
-                </configuration> 
-              </execution> 
-            </executions> 
-          </plugin> 
-        </plugins> 
-      </build> 
-    </profile>  
-    <profile> 
-      <id>profile_mojo_seuls</id>  
-      <build> 
-        <plugins> 
-          <plugin> 
-            <artifactId>maven-jar-plugin</artifactId>  
-            <executions> 
-              <execution> 
-                <id>onlymojo</id>  
-                <goals> 
-                  <goal>jar</goal> 
-                </goals>  
-                <phase>package</phase>  
-                <configuration> 
-                  <classifier>onlymojo</classifier>  
-                  <includes> 
-                    <include>**/*Mojo.*</include> 
-                  </includes> 
-                </configuration> 
-              </execution> 
-            </executions> 
-          </plugin> 
-        </plugins> 
-      </build> 
-    </profile>  
-    <profile> 
-      <id>profile_csv_seules</id>  
-      <build> 
-        <plugins> 
-          <plugin> 
-            <artifactId>maven-jar-plugin</artifactId>  
-            <executions> 
-              <execution> 
-                <id>onlycsv</id>  
-                <goals> 
-                  <goal>jar</goal> 
-                </goals>  
-                <phase>package</phase>  
-                <configuration> 
-                  <classifier>onlycsv</classifier>  
-                  <includes> 
-                    <include>**/*.csv</include> 
-                  </includes> 
-                </configuration> 
-              </execution> 
-            </executions> 
-          </plugin> 
-        </plugins> 
-      </build> 
-    </profile>  
-    <profile> 
-      <id>profile_jenkins</id>  
-      <reporting> 
-        <plugins> 
-            <plugin> 
-              <groupId>org.apache.maven.plugins</groupId>  
-              <artifactId>maven-site-plugin</artifactId>  
-              <!--
-              <version>3.0</version>  
-              -->
-            </plugin>
-            <plugin> 
-              <groupId>org.apache.maven.plugins</groupId>  
-              <artifactId>maven-project-info-reports-plugin</artifactId>  
-              <version>2.2</version> 
-            </plugin>  
-			<!--
-            <plugin> 
-              <groupId>org.apache.maven.plugins</groupId>  
-              <artifactId>maven-pmd-plugin</artifactId>  
-              <version>2.7.1</version>  
-              <configuration> 
-                <targetJdk>${compileSource}</targetJdk> 
-              </configuration> 
-            </plugin>  
-            <plugin> 
-              <groupId>org.apache.maven.plugins</groupId>  
-              <artifactId>maven-javadoc-plugin</artifactId>  
-              <version>2.8.1</version> 
-            </plugin>  
-            <plugin> 
-              <groupId>org.apache.maven.plugins</groupId>  
-              <artifactId>maven-jxr-plugin</artifactId>  
-              <version>2.3</version> 
-            </plugin>  
-            <plugin> 
-              <groupId>org.codehaus.mojo</groupId>  
-              <artifactId>cobertura-maven-plugin</artifactId>  
-              <version>2.5.2</version> 
-            </plugin>  
-            <plugin> 
-              <groupId>com.atlassian.maven.plugins</groupId>  
-              <artifactId>maven-clover2-plugin</artifactId> 
-            </plugin>  
-			-->
-            <plugin> 
-              <groupId>org.apache.maven.plugins</groupId>  
-              <artifactId>maven-surefire-report-plugin</artifactId>  
-              <version>2.12.4</version> 
-				<configuration>
-				  <skipTests>true</skipTests>
-				</configuration>
-			</plugin>  
-			  <plugin> 
-				<groupId>com.qualitesys.maven.plugins</groupId>  
-				<artifactId>qcr-maven-plugin</artifactId> 
-			  </plugin>  
-        </plugins> 
-      </reporting> 
-    </profile> 
-  </profiles> 
 </project>
