@@ -32,7 +32,6 @@ jobs:
     - name: commit
       run: |
           # Stage the files, commit and push
-          git commit -m "First commit"
           git add target/site/*
           git commit -m "Maven Site Copy commit"
-          git push -u origin master
+          git push -u origin HEAD:master
