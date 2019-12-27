@@ -14,15 +14,15 @@ jobs:
     - name: Run a multi-line script
       run: mvn -U --version
     - name: commande ls
-      run: ls -f
+      run: ls -l
     - name: Lancer la compilation
       run: mvn clean compile
     - name: Lancer le maven site
       run: mvn site
     - name: ls sur racine
-      run: ls -f
+      run: ls -l
     - name: ls sur target/site
-      run: ls -f target/site
+      run: ls -l target/site
     - name: setup git config
       run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
