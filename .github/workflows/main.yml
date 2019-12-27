@@ -14,7 +14,7 @@ jobs:
     - name: Run a multi-line script
       run: mvn -U --version
     - name: commande ls
-      run: ls -ef
+      run: ls -f
     - name: Lancer la compilation
       run: mvn clean compile
     - name: Lancer le paven site
