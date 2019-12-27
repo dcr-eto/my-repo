@@ -13,5 +13,7 @@ jobs:
       run: echo Hello, world!
     - name: Run a multi-line script
       run: mvn -U --version
-        echo Add other actions to build,
-        echo test, and deploy your project.
+    - name: Lancer la compilation
+      run: mvn clean compile
+    - name: Lancer le paven site
+      run: mvn site
